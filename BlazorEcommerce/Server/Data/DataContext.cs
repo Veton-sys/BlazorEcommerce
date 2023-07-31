@@ -1,6 +1,4 @@
-﻿using BlazorEcommerce.Client.Pages;
-
-namespace BlazorEcommerce.Server.Data
+﻿namespace BlazorEcommerce.Server.Data
 {
     public class DataContext : DbContext
     {
@@ -15,7 +13,7 @@ namespace BlazorEcommerce.Server.Data
             modelBuilder.Entity<ProductVariant>()
                 .HasKey(p => new { p.ProductId, p.ProductTypeId });
             modelBuilder.Entity<CartItem>()
-                .HasKey(ci => new { ci.UserId, ci.ProductId, ci.ProductTypeId });      
+                .HasKey(ci => new { ci.UserId, ci.ProductId, ci.ProductTypeId });
             modelBuilder.Entity<OrderItem>()
                 .HasKey(oi => new { oi.OrderId, oi.ProductId, oi.ProductTypeId });
 
@@ -191,5 +189,6 @@ namespace BlazorEcommerce.Server.Data
         public DbSet<CartItem> CartItems { get; set; }
         public DbSet<Order> Orders { get; set; }
         public DbSet<OrderItem> OrderItems { get; set; }
+        public DbSet<Address> Addresses { get; set; }
     }
 }
